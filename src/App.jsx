@@ -23,7 +23,6 @@ function App() {
       <TextInput
         label="Enter some text"
         placeholder="Type here"
-        value=""
         onChangeHandler={(e) => {
           console.log(e.target.value);
         }}
