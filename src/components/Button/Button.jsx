@@ -1,9 +1,10 @@
 import React from "react";
+import getButtonVariant from "./getButtonVariant";
 
-const Button = ({ text, onClickHandler }) => {
+const Button = ({ text, onClickHandler, variant }) => {
   return (
     <button
-      className="text-white py-2 px-4 rounded bg-blue-500 hover:bg-blue-700"
+      className={`text-white py-2 px-4 rounded ${getButtonVariant(variant)}`}
       onClick={onClickHandler}
     >
       {text}
