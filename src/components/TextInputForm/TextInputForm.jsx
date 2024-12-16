@@ -3,6 +3,8 @@ import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
 
 function TextInputForm({ handleFormSubmit, handleTextInputChange }) {
+  console.log(typeof handleFormSubmit);
+
   return (
     <form onSubmit={handleFormSubmit}>
       <div>
