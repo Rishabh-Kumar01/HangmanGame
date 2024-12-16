@@ -1,5 +1,6 @@
 import "./App.css";
 import Button from "./components/Button/Button";
+import TextInput from "./components/TextInput/TextInput";
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
         variant="secondary"
         onClickHandler={() => {
           console.log("Button clicked");
+        }}
+      />
+      <TextInput
+        label="Enter some text"
+        placeholder="Type here"
+        value=""
+        onChangeHandler={(e) => {
+          console.log(e.target.value);
         }}
       />
     </>
