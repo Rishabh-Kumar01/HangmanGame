@@ -20,7 +20,7 @@ function TextInputForm({
       </div>
       <div>
         <Button
-          text="Show / Hide"
+          text={inputType === "password" ? "Show" : "Hide"}
           variant="primary"
           onClickHandler={handleShowHideClick}
         />
