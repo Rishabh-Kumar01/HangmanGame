@@ -1,9 +1,11 @@
 import React from "react";
-import "./Button.css";
 
 const Button = ({ text, onClickHandler }) => {
   return (
-    <button className="btn" onClick={onClickHandler}>
+    <button
+      className="text-white py-2 px-4 rounded bg-blue-500 hover:bg-blue-700"
+      onClick={onClickHandler}
+    >
       {text}
     </button>
   );
