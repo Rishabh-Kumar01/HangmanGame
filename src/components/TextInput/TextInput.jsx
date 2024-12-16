@@ -9,7 +9,7 @@ function TextInput({
 }) {
   return (
     <label className="text-gray-700">
-      <span>{label}</span>
+      <span className="block">{label}</span>
       <input
         type={type}
         className="px-4 py-2 border border-gray-500 rounded-md w-full"
