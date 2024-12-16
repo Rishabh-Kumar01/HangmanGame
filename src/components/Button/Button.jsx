@@ -1,13 +1,9 @@
 import React from "react";
+import "./Button.css";
 
-const Button = ({ text, backGroundColor, color }) => {
+const Button = ({ text, onClickHandler }) => {
   return (
-    <button
-      style={{
-        backgroundColor: backGroundColor,
-        color: color,
-      }}
-    >
+    <button className="btn" onClick={onClickHandler}>
       {text}
     </button>
   );

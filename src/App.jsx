@@ -5,7 +5,12 @@ function App() {
   return (
     <>
       <h1>Hello World</h1>
-      <Button text="Click me" backGroundColor="black" color="white" />
+      <Button
+        text="Click me"
+        onClickHandler={() => {
+          console.log("Button clicked");
+        }}
+      />
     </>
   );
 }
