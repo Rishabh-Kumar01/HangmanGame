@@ -11,7 +11,7 @@ function TextInputFormContainer() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (value) {
-      navigate("/game");
+      navigate("/game", { state: { value } });
     }
     console.log("Form submitted!", value);
   }
