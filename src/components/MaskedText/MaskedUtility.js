@@ -16,5 +16,5 @@ export function getMaskedString(typedString, guessedLetters) {
       return "_";
     });
 
-  return maskedString.join("");
+  return maskedString;
 }
