@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function PlayGame() {
   const location = useLocation();
-  const { value } = location.state;
+  const { value } = location.state || {};
 
   return (
     <>
