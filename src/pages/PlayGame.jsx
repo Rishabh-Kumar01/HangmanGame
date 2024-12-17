@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 
 function PlayGame() {
   const location = useLocation();
-  const { value } = location.state || {};
+  const { wordSelected } = location.state || {};
 
   return (
     <>
       <h1>Play Game</h1>
-      {value && <p>Value from Start Game: {value}</p>}
+      {wordSelected && <p>Word Selected from Start Game: {wordSelected}</p>}
       <Link to="/start">Start Game</Link>
     </>
   );
