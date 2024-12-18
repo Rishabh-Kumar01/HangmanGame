@@ -11,8 +11,10 @@ function PlayGame() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [step, setStep] = useState(0);
 
-  function onClickAfterHandler(letter) {
-    console.log("Button clicked After!", letter);
+  function onClickHandler(event) {
+    const letter = event.target.value;
+
+    console.log("Button clicked!", letter);
     if (wordSelected.toUpperCase().includes(letter)) {
       console.log("Correct Guess!", letter);
     } else {
@@ -31,7 +33,7 @@ function PlayGame() {
         <LetterButton
           wordSelected={wordSelected}
           guessedLetters={guessedLetters}
-          onClickHandler={onClickAfterHandler}
+          onClickHandler={onClickHandler}
         />
       </div>
       <div>
