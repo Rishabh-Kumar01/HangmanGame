@@ -12,6 +12,8 @@ function PlayGame() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [step, setStep] = useState(0);
   const [hasConfetti, setHasConfetti] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const MAX_STEPS = 7;
 
   function onClickHandler(event) {
     const letter = event.target.value;
@@ -21,7 +23,12 @@ function PlayGame() {
       console.log("Correct Guess!", letter);
     } else {
       console.log("Wrong Guess!", letter);
-      setStep(step + 1);
+      const newStep = step + 1;
+      setStep(newStep);
+
+      if (newStep >= MAX_STEPS) {
+        setIsGameOver(true);
+      }
     }
     setGuessedLetters([...guessedLetters, letter]);
   }
@@ -69,7 +76,6 @@ function PlayGame() {
   return (
     <>
       <h1>Play Game</h1>
-      {wordSelected && <p>Word Selected from Start Game: {wordSelected}</p>}
       <MaskedText wordSelected={wordSelected} guessedLetters={guessedLetters} />
       <div>
         <LetterButton
@@ -82,9 +88,24 @@ function PlayGame() {
       <div>
         <HangMan step={step} />
       </div>
+
       {hasConfetti && (
         <div style={styles.overlay}>
           <h2 className="mb-2">Guessed Correctly!! 🎉</h2>
+          <Link
+            to="/start"
+            className="mt-8 px-4 py-1 border-dashed border-2 border-blue-500 rounded-md"
+          >
+            Start Again
+          </Link>
+        </div>
+      )}
+
+      {isGameOver && (
+        <div style={styles.overlay}>
+          <h2>Game Over 😢</h2>
+          <p>Guesses Left: 0</p>
+          <p className="mb-2s">The word was: {wordSelected}</p>
           <Link
             to="/start"
             className="mt-8 px-4 py-1 border-dashed border-2 border-blue-500 rounded-md"

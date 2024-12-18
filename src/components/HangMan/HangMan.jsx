@@ -23,7 +23,7 @@ function HangMan({ step }) {
   return (
     <div>
       <img
-        src={step >= images.length ? images[images.size() - 1] : images[step]}
+        src={step >= images.length ? images[images.length() - 1] : images[step]}
         alt={`images-${step}`}
         className="h-[300px] w-[300px] m-4"
       />
