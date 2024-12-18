@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MaskedText from "../components/MaskedText/MaskedText";
 import LetterButton from "../components/LetterButton/LetterButton";
 import HangMan from "../components/HangMan/HangMan";
+import confetti from "canvas-confetti";
 
 function PlayGame() {
   const location = useLocation();
@@ -10,6 +11,7 @@ function PlayGame() {
 
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [step, setStep] = useState(0);
+  const [hasConfetti, setHasConfetti] = useState(false);
 
   function onClickHandler(event) {
     const letter = event.target.value;
@@ -23,6 +25,24 @@ function PlayGame() {
     }
     setGuessedLetters([...guessedLetters, letter]);
   }
+
+  useEffect(() => {
+    if (!wordSelected) return;
+
+    const wordSet = new Set(wordSelected.toUpperCase());
+    const guessedSet = new Set(guessedLetters);
+
+    const allGuessed = [...wordSet].every((letter) => guessedSet.has(letter));
+
+    if (allGuessed && !hasConfetti) {
+      setHasConfetti(true);
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    }
+  }, [wordSelected, guessedLetters, hasConfetti]);
 
   return (
     <>
