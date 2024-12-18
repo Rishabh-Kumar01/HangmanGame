@@ -1,6 +1,11 @@
 const ALPHABETS = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");
 
-function LetterButton({ wordSelected, guessedLetters, onClickHandler }) {
+function LetterButton({
+  wordSelected,
+  guessedLetters,
+  onClickHandler,
+  hasConfetti,
+}) {
   const wordSelectedSet = new Set(wordSelected.toUpperCase());
   const guessedLettersSet = new Set(guessedLetters);
 
@@ -18,7 +23,7 @@ function LetterButton({ wordSelected, guessedLetters, onClickHandler }) {
         onClick={onClickHandler}
         value={letter}
         key={`button-${letter}`}
-        disabled={guessedLettersSet.has(letter)}
+        disabled={guessedLettersSet.has(letter) || hasConfetti}
       >
         {letter}
       </button>

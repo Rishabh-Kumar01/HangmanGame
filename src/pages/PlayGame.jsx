@@ -76,14 +76,40 @@ function PlayGame() {
           wordSelected={wordSelected}
           guessedLetters={guessedLetters}
           onClickHandler={onClickHandler}
+          hasConfetti={hasConfetti}
         />
       </div>
       <div>
         <HangMan step={step} />
       </div>
-      <Link to="/start">Start Game</Link>
+      {hasConfetti && (
+        <div style={styles.overlay}>
+          <h2 className="mb-2">Guessed Correctly!! 🎉</h2>
+          <Link
+            to="/start"
+            className="mt-8 px-4 py-1 border-dashed border-2 border-blue-500 rounded-md"
+          >
+            Start Again
+          </Link>
+        </div>
+      )}
     </>
   );
 }
+
+const styles = {
+  overlay: {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    padding: "30px",
+    borderRadius: "10px",
+    textAlign: "center",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    zIndex: 1000,
+  },
+};
 
 export default PlayGame;
