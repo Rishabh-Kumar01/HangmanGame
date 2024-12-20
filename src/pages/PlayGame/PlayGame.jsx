@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MaskedText from "../components/MaskedText/MaskedText";
-import LetterButton from "../components/LetterButton/LetterButton";
-import HangMan from "../components/HangMan/HangMan";
+import MaskedText from "../../components/MaskedText/MaskedText";
+import LetterButton from "../../components/LetterButton/LetterButton";
+import HangMan from "../../components/HangMan/HangMan";
 import confetti from "canvas-confetti";
 
 function PlayGame() {
