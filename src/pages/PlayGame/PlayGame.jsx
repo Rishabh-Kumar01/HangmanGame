@@ -8,7 +8,7 @@ import Button from "../../components/Button/Button";
 
 function PlayGame() {
   const location = useLocation();
-  const { wordSelected } = location.state || {};
+  const { wordSelected, hint } = location.state || {};
   console.log("Word Selected: ", wordSelected);
 
   const [guessedLetters, setGuessedLetters] = useState([]);
@@ -79,7 +79,7 @@ function PlayGame() {
     <>
       {wordSelected ? (
         <>
-          <h1>Play Game</h1>
+          <h1>Hint: [{hint}]</h1>
           <MaskedText
             wordSelected={wordSelected}
             guessedLetters={guessedLetters}
