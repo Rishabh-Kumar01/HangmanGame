@@ -21,7 +21,7 @@ function Home() {
       <div className="flex flex-col items-center justify-center h-screen">
         <div>
           <Link to="/game" state={{ wordSelected: word }}>
-            <Button text="Single Player" />
+            <Button text="One Player" />
           </Link>
         </div>
         <div className="mt-4">
