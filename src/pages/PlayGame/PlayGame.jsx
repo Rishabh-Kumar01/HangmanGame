@@ -4,10 +4,12 @@ import MaskedText from "../../components/MaskedText/MaskedText";
 import LetterButton from "../../components/LetterButton/LetterButton";
 import HangMan from "../../components/HangMan/HangMan";
 import confetti from "canvas-confetti";
+import Button from "../../components/Button/Button";
 
 function PlayGame() {
   const location = useLocation();
   const { wordSelected } = location.state || {};
+  console.log("Word Selected: ", wordSelected);
 
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [step, setStep] = useState(0);
@@ -75,19 +77,33 @@ function PlayGame() {
 
   return (
     <>
-      <h1>Play Game</h1>
-      <MaskedText wordSelected={wordSelected} guessedLetters={guessedLetters} />
-      <div>
-        <LetterButton
-          wordSelected={wordSelected}
-          guessedLetters={guessedLetters}
-          onClickHandler={onClickHandler}
-          hasConfetti={hasConfetti}
-        />
-      </div>
-      <div>
-        <HangMan step={step} />
-      </div>
+      {wordSelected ? (
+        <>
+          <h1>Play Game</h1>
+          <MaskedText
+            wordSelected={wordSelected}
+            guessedLetters={guessedLetters}
+          />
+          <div>
+            <LetterButton
+              wordSelected={wordSelected}
+              guessedLetters={guessedLetters}
+              onClickHandler={onClickHandler}
+              hasConfetti={hasConfetti}
+            />
+          </div>
+          <div>
+            <HangMan step={step} />
+          </div>
+        </>
+      ) : (
+        <>
+          <h1 className="mb-2">Word not selected</h1>
+          <Link to="/">
+            <Button text="Go Back" variant="error" />
+          </Link>
+        </>
+      )}
 
       {hasConfetti && (
         <div style={styles.overlay}>
